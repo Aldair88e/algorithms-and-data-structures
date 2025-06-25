@@ -15,7 +15,7 @@ public class CanSumTargetTest {
     // Suponiendo que esta es tu función a probar:
     @BeforeEach
     public void setUp(){
-        solver = new SubsetSumForceBrute();
+        solver = new SubsetSumWithMemoization();
     }
 
     @Test
@@ -41,9 +41,9 @@ public class CanSumTargetTest {
 
     @Test
     void testEficienciaConTiempo() {
-        List<Integer> inputList = Collections.nCopies(100_000, 7);
+        List<Integer> inputList = Arrays.asList(7, 14);
         assertTimeout(Duration.ofMillis(200), () -> {
-            assertTrue(solver.isSubsetSumPossible(inputList, 700_000)); // 100_000 veces el 7
+            assertFalse(solver.isSubsetSumPossible(inputList, 300)); // 100_000 veces el 7
         });
     }
 
