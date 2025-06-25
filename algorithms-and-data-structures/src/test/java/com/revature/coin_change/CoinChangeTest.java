@@ -12,7 +12,7 @@ public class CoinChangeTest {
     public CoinChangeI cc;
     @BeforeEach
     public void setUp(){
-        cc = new CoinChangeSimpleRecursion();
+        cc = new CoinChangeMemoized();
     }
     @Test
     void testExactMatchSingleCoin() {
